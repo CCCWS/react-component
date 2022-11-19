@@ -30,6 +30,21 @@
      * 추가 옵션 없음
      <img src="https://user-images.githubusercontent.com/86645532/202850493-8878757d-26fc-4a08-85c8-479933018023.gif" width="300px" >
      
+  * 사용예시
+  
+  ```javascript
+ return (
+    <Carousel height={"400px"} point={true} slide={true} nextBtn={true}>
+      <div>테스트1</div>
+      <div>테스트2</div>
+      <div>테스트3</div>        
+    </Carousel>
+  );
+```
+     
+     
+     
+     
      
 
 
