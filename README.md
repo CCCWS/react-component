@@ -21,14 +21,14 @@
 
 |                   slide            |                    fade                      |
 | :---------------------------------------------: | :---------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/86645532/202850409-9bc59588-4568-442e-9c65-e3d6b9514ef5.gif"  width="400px"> | <img src="https://user-images.githubusercontent.com/86645532/202850414-82058546-29c4-4686-9bad-91a5b304e21f.gif"  width="400px"> |
+| <img src="https://user-images.githubusercontent.com/86645532/202850409-9bc59588-4568-442e-9c65-e3d6b9514ef5.gif"  width="300px"> | <img src="https://user-images.githubusercontent.com/86645532/202850414-82058546-29c4-4686-9bad-91a5b304e21f.gif"  width="300px"> |
 
 
 
 
   * Type 2
      * 추가 옵션 없음
-     <img src="https://user-images.githubusercontent.com/86645532/202850493-8878757d-26fc-4a08-85c8-479933018023.gif" width="400px" >
+     <img src="https://user-images.githubusercontent.com/86645532/202850493-8878757d-26fc-4a08-85c8-479933018023.gif" width="300px" >
      
      
 
