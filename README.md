@@ -43,6 +43,52 @@
 ```
      
      
+## 2. Modal
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children         |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
+|     open         |       boolean        |     필수         |   null       | modal 상태         | 
+|     setOpen         |      function        |     필수    |   null       | modal 상태 변경         |
+|     onPushEscapeClose         |       boolean         |     선택       |  false       | esc키를 눌러 modal 닫기       |
+|     onClickBackgroundClose         |       boolean        |     선택         |   false       | 배경을 눌러 modal 닫기         | 
+|     onCloseBtn         |      boolean        |     선택    |   false       | 기본 닫기 버튼         |
+|     backgroundColor         |      string        |     선택    |   rgba(165, 165, 165, 0.3)       | 배경색         |
+
+<img src="https://user-images.githubusercontent.com/86645532/202905346-065edfda-6701-4e96-a81c-65d1a7266910.gif">  
+
+  * 사용예시
+  
+  ```javascript
+const App = () => {
+  const [openModal, setOpenModal] = useState(false);
+  return (
+    <>
+      <Modal
+        open={openModal}
+        setOpen={setOpenModal}
+        onPushEscapeClose={true}
+        onClickBackgroundClose={true}
+        onCloseBtn={true}
+        backgroundColor={"rgba(0,0,0,0.5)"}
+      >
+        <Div>TEST</Div>
+      </Modal>
+
+      <button onClick={() => setOpenModal(!openModal)}>열기</button>
+    </>
+  );
+};
+
+const Div = styled.div`
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+```
      
      
      
