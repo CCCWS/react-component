@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Carousel = ({ children, height, point }) => {
+const CarouselType2 = ({ children, height, point }) => {
   if (children.length === undefined) {
     children = [children];
   }
@@ -101,4 +101,4 @@ const Point = styled.div`
   }
 `;
 
-export default Carousel;
+export default CarouselType2;
