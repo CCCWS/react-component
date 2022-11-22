@@ -155,4 +155,4 @@ width: ${(props) => (props.location === props.id ? "20px" : "10px")};
   }
 `;
 
-export default Carousel;
+export default CarouselType1;
