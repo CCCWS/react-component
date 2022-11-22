@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 
-const Carousel = ({ children, height, slide, fade, nextBtn, point }) => {
+const CarouselType1 = ({ children, height, slide, fade, nextBtn, point }) => {
   if (children.length === undefined) {
     children = [children];
   }
