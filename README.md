@@ -1,4 +1,4 @@
-## 1. Carousel
+## 1. [Carousel](https://github.com/CCCWS/react-component/tree/main/carousel)
    * 크기
       * width - 부모 컴포넌트의 100%
       * height - props로 넘겨준 값  
@@ -49,7 +49,7 @@
 ```
      
      
-## 2. Modal
+## 2. [Modal](https://github.com/CCCWS/react-component/blob/main/modal/Modal.js)
    * 크기
       * width - 자식 컴포넌트에 따라 변화
       * height - 자식 컴포넌트에 따라 변화
