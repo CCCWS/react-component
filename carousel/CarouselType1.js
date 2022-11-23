@@ -23,7 +23,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   }, [children, location]);
 
   useEffect(() => {
-    if (auto) {
+    if (auto && children.length > 1) {
       function tick() {
         savedCallback.current();
       }
