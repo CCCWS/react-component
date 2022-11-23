@@ -12,7 +12,7 @@
 |     children         |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
 |     height         |       string        |     필수         |   null       | Carousel의 높이         | 
 |     point         |      boolean        |     선택    |   false       | 전체 컴포넌트의 수 및 현재위치 표시         |
-|     auto         |       boolean        |     선택         |false       |     다음으로 자동 이동         | 
+|     auto         |       boolean        |     선택         |false       |     다음으로 자동 이동, 마우스가 닿아 있는 동안은 이동하지 않음           | 
 |     delay         |       number        |     auto 사용시 필수         |null       |     자동 이동 대기시간         | 
 
 
