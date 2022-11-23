@@ -9,6 +9,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
 
   const savedCallback = useRef();
   const [location, setLocation] = useState(0);
+  const [mouseOver, setMouseOver] = useState(false);
 
   useEffect(() => {
     const autoNext = () => {
@@ -23,7 +24,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   }, [children, location]);
 
   useEffect(() => {
-    if (auto && children.length > 1) {
+    if (auto && mouseOver === false && children.length > 1) {
       function tick() {
         savedCallback.current();
       }
@@ -32,7 +33,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
         return () => clearInterval(id);
       }
     }
-  }, [auto, delay]);
+  }, [children, auto, delay, mouseOver]);
 
   const onPrev = () => {
     if (location === 0) {
@@ -56,7 +57,10 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
 
   return (
     <>
-      <Div>
+      <Div
+        onMouseOver={() => setMouseOver(true)}
+        onMouseLeave={() => setMouseOver(false)}
+      >
         {nextBtn && children.length > 1 && (
           <>
             <Button prev={true} onClick={onPrev}>
