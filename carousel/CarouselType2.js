@@ -1,12 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
-const CarouselType2 = ({ children, height, point }) => {
+const CarouselType2 = ({ children, height, point, auto, delay }) => {
   if (children.length === undefined) {
     children = [children];
   }
 
   const [location, setLocation] = useState(0);
+  const savedCallback = useRef();
+
+  useEffect(() => {
+    const autoNext = () => {
+      if (location === children.length - 1) {
+        setLocation(0);
+      } else {
+        setLocation((location) => location + 1);
+      }
+    };
+
+    savedCallback.current = autoNext;
+  }, [children, location]);
+
+  useEffect(() => {
+    if (auto && children.length > 1) {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }
+  }, [auto, delay]);
 
   const onLocation = (index) => {
     setLocation(index);
