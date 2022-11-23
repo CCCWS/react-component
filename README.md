@@ -12,6 +12,8 @@
 |     children         |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
 |     height         |       string        |     필수         |   null       | Carousel의 높이         | 
 |     point         |      boolean        |     선택    |   false       | 전체 컴포넌트의 수 및 현재위치 표시         |
+|     auto         |       boolean        |     선택         |false       |     다음으로 자동 이동         | 
+|     delay         |       number        |     auto 사용시 필수         |null       |     자동 이동 대기시간         | 
 
 
 
@@ -24,8 +26,6 @@
 |     slide         |       boolean         |    slide / fade 택1 필수      |false       |     컴포넌트 넘길시 slide 효과       |
 |     fade         |      boolean        |     slide / fade 택1 필수     | false       |     컴포넌트 넘길시 fade 효과         |
 |     nextBtn         |       boolean        |     선택         |false       |     이전, 다음 버튼         | 
-|     auto         |       boolean        |     선택         |false       |     다음으로 자동 이동         | 
-|     delay         |       number        |     auto 사용시 필수         |null       |     자동 이동 대기시간         | 
 
 |                   slide            |                    fade                      |
 | :---------------------------------------------: | :---------------------------------------------: |
