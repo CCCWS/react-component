@@ -6,9 +6,10 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
     children = [children];
   }
 
-  const [location, setLocation] = useState(0);
   const savedCallback = useRef();
-
+  const [location, setLocation] = useState(0);
+  const [mouseOver, setMouseOver] = useState(false);
+ 
   useEffect(() => {
     const autoNext = () => {
       if (location === children.length - 1) {
@@ -22,7 +23,7 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
   }, [children, location]);
 
   useEffect(() => {
-    if (auto && children.length > 1) {
+    if (auto && mouseOver === false && children.length > 1) {
       function tick() {
         savedCallback.current();
       }
@@ -31,15 +32,14 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
         return () => clearInterval(id);
       }
     }
-  }, [auto, delay]);
-
-  const onLocation = (index) => {
-    setLocation(index);
-  };
+  }, [children, auto, delay, mouseOver]);
 
   return (
     <>
-      <Div>
+      <Div
+        onMouseOver={() => setMouseOver(true)}
+        onMouseLeave={() => setMouseOver(false)}
+      >
         <Section height={height}>
           {children.map((data, index) => (
             <Item key={index} id={index} location={location}>
@@ -55,7 +55,7 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
                 key={index}
                 id={index}
                 location={location}
-                onClick={() => onLocation(index)}
+                onClick={() => setLocation(index)}
               />
             ))}
           </PointBox>
