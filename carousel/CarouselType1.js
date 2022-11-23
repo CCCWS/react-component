@@ -51,10 +51,6 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
     }
   };
 
-  const onLocation = (index) => {
-    setLocation(index);
-  };
-
   return (
     <>
       <Div
@@ -93,7 +89,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
                 key={index}
                 id={index}
                 location={location}
-                onClick={() => onLocation(index)}
+                onClick={() => setLocation(index)}
               />
             ))}
           </PointBox>
