@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 
-const CarouselType1 = ({ children, height, slide, fade, nextBtn, point }) => {
+const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay }) => {
   if (children.length === undefined) {
     children = [children];
   }
 
+  const savedCallback = useRef();
   const [location, setLocation] = useState(0);
+
+  useEffect(() => {
+    const autoNext = () => {
+      if (location === children.length - 1) {
+        setLocation(0);
+      } else {
+        setLocation((location) => location + 1);
+      }
+    };
+
+    savedCallback.current = autoNext;
+  }, [children, location]);
+
+  useEffect(() => {
+    if (auto) {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }
+  }, [auto, delay]);
 
   const onPrev = () => {
     if (location === 0) {
@@ -16,7 +41,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point }) => {
       setLocation((location) => location - 1);
     }
   };
-
+  
   const onNext = () => {
     if (location === children.length - 1) {
       setLocation(0);
