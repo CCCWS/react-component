@@ -26,10 +26,15 @@
 |     slide         |       boolean         |    slide / fade 택1 필수      |false       |     컴포넌트 넘길시 slide 효과       |
 |     fade         |      boolean        |     slide / fade 택1 필수     | false       |     컴포넌트 넘길시 fade 효과         |
 |     nextBtn         |       boolean        |     선택         |false       |     이전, 다음 버튼         | 
+|     swipe         |       boolean        |     선택         |false       |     스와이프하여 이전, 다음 이동         | 
 
 |                   slide            |                    fade                      |
 | :---------------------------------------------: | :---------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/86645532/202850409-9bc59588-4568-442e-9c65-e3d6b9514ef5.gif"  width="300px"> | <img src="https://user-images.githubusercontent.com/86645532/202850414-82058546-29c4-4686-9bad-91a5b304e21f.gif"  width="300px"> |
+| <img src="https://user-images.githubusercontent.com/86645532/202850409-9bc59588-4568-442e-9c65-e3d6b9514ef5.gif"  width="300px"> | <img src="https://user-images.githubusercontent.com/86645532/202850414-82058546-29c4-4686-9bad-91a5b304e21f.gif"  width="300px"> |  
+|                    swipe                      |
+  | <img src="https://user-images.githubusercontent.com/86645532/204001002-339f5008-486d-4698-b99e-68bf572ffc4f.gif"  width="300px"> |  
+  
+
 
 
 
@@ -45,8 +50,6 @@
     <Carousel 
       height={"400px"} 
       point={true} 
-      slide={true} 
-      nextBtn={true}
       auto={true}
       delay={2000}
      >
