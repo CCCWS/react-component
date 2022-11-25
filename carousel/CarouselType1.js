@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 
-const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay }) => {
+const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay, swipe }) => {
   if (children.length === undefined) {
     children = [children];
   }
@@ -10,7 +10,26 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   const savedCallback = useRef();
   const [location, setLocation] = useState(0);
   const [mouseOver, setMouseOver] = useState(false);
+  const [user, setUser] = useState("");
+  
+  useEffect(() => {
+    if (
+      navigator.userAgent.match(
+        /Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/
+      )
+    ) {
+      setUser("mobile");
+    }
 
+    if (
+      !navigator.userAgent.match(
+        /Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/
+      )
+    ) {
+      setUser("pc");
+    }
+  }, []);
+  
   useEffect(() => {
     const autoNext = () => {
       if (location === children.length - 1) {
@@ -50,12 +69,40 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
       setLocation((location) => location + 1);
     }
   };
+  
+  let startClientX = 0;
+
+  const onDownEvent = (e) => {
+    if (user === "pc") startClientX = e.clientX;
+    if (user === "mobile") startClientX = e.changedTouches[0].clientX;
+  };
+
+  const onUpEvent = (e) => {
+    let endClientX = 0;
+
+    if (user === "pc") endClientX = e.clientX;
+    if (user === "mobile") endClientX = e.changedTouches[0].clientX;
+
+    let moveX = startClientX - endClientX;
+    if (moveX >= 200) {
+      onNext();
+    }
+
+    if (moveX <= -200) {
+      onPrev();
+    }
+  };
+
 
   return (
     <>
       <Div
         onMouseOver={() => setMouseOver(true)}
         onMouseLeave={() => setMouseOver(false)}
+        onMouseDown={swipe && user === "pc" ? onDownEvent : null}
+        onMouseUp={swipe && user === "pc" ? onUpEvent : null}
+        onTouchStart={swipe && user === "mobile" ? onDownEvent : null}
+        onTouchEnd={swipe && user === "mobile" ? onUpEvent : null}
       >
         {nextBtn && children.length > 1 && (
           <>
