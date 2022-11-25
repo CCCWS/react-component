@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 
 const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay, swipe }) => {
+  //넘겨진 자식노드가 하나일 경우 배열로 감싸줌
   if (children.length === undefined) {
     children = [children];
   }
@@ -12,6 +13,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   const [mouseOver, setMouseOver] = useState(false);
   const [user, setUser] = useState("");
   
+  //유저가 접속한 브라우저 환경 확인
   useEffect(() => {
     if (
       navigator.userAgent.match(
@@ -30,6 +32,7 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
     }
   }, []);
   
+  //참조값을 동적으로 하여 변화된 state가 반영되는 setInterval의 개량형
   useEffect(() => {
     const autoNext = () => {
       if (location === children.length - 1) {
@@ -53,7 +56,8 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
       }
     }
   }, [children, auto, delay, mouseOver]);
-
+  
+  //컴포넌트이동 이벤트
   const onPrev = () => {
     if (location === 0) {
       setLocation(children.length - 1);
@@ -61,7 +65,6 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
       setLocation((location) => location - 1);
     }
   };
-  
   const onNext = () => {
     if (location === children.length - 1) {
       setLocation(0);
@@ -70,8 +73,8 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
     }
   };
   
+  //스와이프 
   let startClientX = 0;
-
   const onDownEvent = (e) => {
     if (user === "pc") startClientX = e.clientX;
     if (user === "mobile") startClientX = e.changedTouches[0].clientX;
@@ -84,11 +87,11 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
     if (user === "mobile") endClientX = e.changedTouches[0].clientX;
 
     let moveX = startClientX - endClientX;
-    if (moveX >= 200) {
+    if (moveX >= 150) {
       onNext();
     }
 
-    if (moveX <= -200) {
+    if (moveX <= -150) {
       onPrev();
     }
   };
