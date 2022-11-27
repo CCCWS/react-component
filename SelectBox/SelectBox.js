@@ -47,9 +47,13 @@ function SelectBox({
         fade={fade}
       >
         {dataArr.map((item, index) => (
-          <Li onClick={select} key={index}>
-            {item}
-          </Li>
+          <>
+            {open && (
+              <Li onClick={select} key={index}>
+                {item}
+              </Li>
+            )}
+          </>
         ))}
       </Ul>
     </Div>
@@ -90,7 +94,7 @@ const Ul = styled.ul`
 
   z-index: 99;
   border-radius: 3px;
-  transition: 0.3s;
+  transition: 0.5s;
   box-shadow: ${(props) =>
     props.open ? "0px 0px 10px 0px rgba(0, 0, 0, 0.1)" : "none"};
 
