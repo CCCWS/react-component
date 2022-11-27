@@ -110,7 +110,51 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
 `;
-```
+```  
+
+## 3. [SelectBox](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
+   * 크기
+      * width - props로 넘겨준 값 
+      * height - 글자 크기에 따라 변화
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     dataArr         |       array         |     필수       |  null       | 선택할 데이터       |
+|     width         |       string        |     필수         |   null       | SelectBox 길이         | 
+|     selectValue         |      string        |     필수    |   null       | 선택한 값         |
+|     setSelectValue         |       function         |     필수       |  null       | 선택한 값 변화       |
+|     slide         |       boolean        |     slide / fade 택1 필수         |   false       | 선택지 목록을 열때 slide 효과         | 
+|     fade         |      boolean        |     slide / fade 택1 필수    |   false       | 선택지 목록을 열때  효과         |
+
+|                   slide            |                    fade                      |
+| :---------------------------------------------: | :---------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/86645532/204145218-031e732d-4f2d-49d3-ab90-234dbe99c333.gif"  width="200px"> | <img src="https://user-images.githubusercontent.com/86645532/204145228-908978da-986d-4745-b443-03b0ffce4605.gif"  width="200px"> |  
+
+
+
+
+
+
+  * 사용예시
+  
+  ```javascript
+const App = () => {  
+  const [selectValue, setSelectValue] = useState("기본값");
+  const dataArr = ["선택값1","선택값2","선택값3","선택값4","선택값5","선택값6","선택값7"];
+  
+  return (
+    <SelectBox
+    dataArr={dataArr}
+    width={"200px"}
+    selectValue={selectValue}
+    setSelectValue={setSelectValue}
+    slide={true}
+    />
+  );
+};
+```  
      
      
      
