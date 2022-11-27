@@ -115,7 +115,7 @@ const Div = styled.div`
 ## 3. [SelectBox](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
    * 크기
       * width - props로 넘겨준 값 
-      * height - 글자 크기에 따라 변화
+      * height - 폰트 에 따라 변화
       
    * 옵션  
    
