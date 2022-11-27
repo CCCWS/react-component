@@ -130,12 +130,7 @@ const Div = styled.div`
 
 |                   slide            |                    fade                      |
 | :---------------------------------------------: | :---------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/86645532/204145218-031e732d-4f2d-49d3-ab90-234dbe99c333.gif"  width="200px"> | <img src="https://user-images.githubusercontent.com/86645532/204145228-908978da-986d-4745-b443-03b0ffce4605.gif"  width="200px"> |  
-
-
-
-
-
+| <img src="https://user-images.githubusercontent.com/86645532/204148527-d9068813-e86c-4861-ab2c-06bb4068977e.gif"  width="200px"> | <img src="https://user-images.githubusercontent.com/86645532/204148528-08bbe83f-5ebd-45bd-93ba-154f2a1b4fdb.gif"  width="200px"> |  
 
   * 사용예시
   
