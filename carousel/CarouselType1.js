@@ -200,6 +200,7 @@ const Item = styled.div`
     css`
       position: absolute;
       opacity: ${(props) => (props.id === props.location ? "1" : "0")};
+      z-index: ${(props) => (props.id === props.location ? "1" : "0")};
     `}
 `;
 
@@ -213,6 +214,7 @@ const PointBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 1;
 `;
 
 const Point = styled.div`
