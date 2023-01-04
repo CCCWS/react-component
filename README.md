@@ -150,6 +150,39 @@ const App = () => {
   );
 };
 ```  
+
+
+## 4. [One Page Scroll](https://github.com/CCCWS/react-component/blob/main/One_Page_Scroll/OnePageScroll.tsx)  
+   * 크기
+      * width - 100vw 
+      * height - 100vh
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children         |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
+|     delay         |       number         |     필수       |  null       | 마우스휠로 페이지이동 딜레이       |
+|     point         |       boolean        |     선택         |  false       | 현재 페이지 위치 표시         | 
+
+
+|                               | 
+| :---------------------------------------------: | 
+| <img src="https://user-images.githubusercontent.com/86645532/210561705-7fd86081-750e-4063-bae4-b25df8308e1d.gif"  width="400px">  |
+
+
+  
+  ```javascript
+const App = () => {  
+  return (
+    <VerticalCarousel delay={1000} point={true}>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </VerticalCarousel>
+  );
+};
+```  
      
      
      
