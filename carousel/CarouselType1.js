@@ -100,8 +100,8 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   return (
     <>
       <Div
-        onMouseOver={() => setMouseOver(true)}
-        onMouseLeave={() => setMouseOver(false)}
+        onMouseOver={() => auto && setMouseOver(true)}
+        onMouseLeave={() => auto && setMouseOver(false)}
         onMouseDown={swipe && user === "pc" ? onDownEvent : null}
         onMouseUp={swipe && user === "pc" ? onUpEvent : null}
         onTouchStart={swipe && user === "mobile" ? onDownEvent : null}
