@@ -48,6 +48,7 @@
   ```javascript
  return (
     <Carousel 
+      slide={true}
       height={"400px"} 
       point={true} 
       auto={true}
