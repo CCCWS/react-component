@@ -184,6 +184,37 @@ const App = () => {
   );
 };
 ```  
+
+
+## 5. [HamburgerBtn](https://github.com/CCCWS/react-component/blob/main/HamburgerBtn/HamburgerBtn.js)  
+   * 크기
+      * width - 30px 
+      * height - 30px
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     btnClick         |       boolean         |     필수       |  null       | 클릭 상태       |
+|     setBtnClick         |       function         |     필수       |  null       | 클릭 상태 변경       |
+
+
+
+<img src="https://user-images.githubusercontent.com/86645532/212037317-4ca04a4e-bf2c-4d56-814b-bbb8e46bf3b9.gif"  width="200px"> 
+
+
+  
+  ```javascript
+const App = () => {  
+  const [click, setClick] = useState(false);
+  
+  return (
+    <HamburgerBtn btnClick={click} setBtnClick={setClick} />
+  );
+};
+```  
+     
+     
      
      
      
