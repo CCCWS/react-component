@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
-const Carousel = ({
+const CarouselInfiniteLoop = ({
   children,
   height,
   point,
@@ -254,4 +254,4 @@ const Button = styled.button`
   }
 `;
 
-export default Carousel;
+export default CarouselInfiniteLoop;
