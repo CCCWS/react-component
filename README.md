@@ -36,9 +36,6 @@
   
 
 
-
-
-
   * Type 2
      * 추가 옵션 없음
      <img src="https://user-images.githubusercontent.com/86645532/202850493-8878757d-26fc-4a08-85c8-479933018023.gif" width="300px" >
@@ -60,9 +57,51 @@
     </Carousel>
   );
 ```
+
+## 2. [Carousel Infinite Loop ver.](https://github.com/CCCWS/react-component/blob/main/carousel/Carousel_Infinite_Loop.js)
+   * 크기
+      * width - 부모 컴포넌트의 100%
+      * height - props로 넘겨준 값
+      
+   * 옵션  
+   
+|   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children         |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
+|     height         |       string        |     필수         |   null       | Carousel의 높이         | 
+|     point         |      boolean        |     선택    |   false       | 전체 컴포넌트의 수 및 현재위치 표시         |
+|     nextBtn         |       boolean        |     선택         |false       |     이전, 다음 버튼         | 
+|     auto         |       boolean        |     선택         |false       |     다음으로 자동 이동, 마우스가 닿아 있는 동안은 이동하지 않음           | 
+|     autoDelay         |       number        |     auto 사용시 필수         |null       |     자동 이동 대기시간         | 
+|     transitionDuration         |       number        |     선택         |null       |     슬라이드 애니메이션 지속시간         | 
+
+*children이 하나라면 point와 nextBtn을 true로 주어도 화면에 표시되지 않음.  
+*transitionDuration의 값을 입력하지 않거나 0일 경우 애니메이션이 발생하지 않음. 
+
+<img src="https://user-images.githubusercontent.com/86645532/212328928-59168716-9aa4-4e42-8ef8-072c2dfaf46a.gif">  
+
+
+  * 사용예시
+  
+  ```javascript
+ return (
+    <CarouselInfiniteLoop 
+       height={"500px"}
+       transitionDuration={500}
+       point={true}
+       nextBtn={true}
+       auto={true}
+       autoDelay={1000}
+     >
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>        
+    </Carousel>
+  );
+``` 
      
      
-## 2. [Modal](https://github.com/CCCWS/react-component/blob/main/modal/Modal.js)
+## 3. [Modal](https://github.com/CCCWS/react-component/blob/main/modal/Modal.js)
    * 크기
       * width - 자식 컴포넌트에 따라 변화
       * height - 자식 컴포넌트에 따라 변화
@@ -113,7 +152,7 @@ const Div = styled.div`
 `;
 ```  
 
-## 3. [SelectBox](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
+## 4. [SelectBox](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
    * 크기
       * width - props로 넘겨준 값 
       * height - 폰트 에 따라 변화
@@ -153,7 +192,7 @@ const App = () => {
 ```  
 
 
-## 4. [One Page Scroll](https://github.com/CCCWS/react-component/blob/main/One_Page_Scroll/OnePageScroll.tsx)  
+## 5. [One Page Scroll](https://github.com/CCCWS/react-component/blob/main/One_Page_Scroll/OnePageScroll.tsx)  
    * 크기
       * width - 100vw 
       * height - 100vh
@@ -186,7 +225,7 @@ const App = () => {
 ```  
 
 
-## 5. [HamburgerBtn](https://github.com/CCCWS/react-component/blob/main/HamburgerBtn/HamburgerBtn.js)  
+## 6. [HamburgerBtn](https://github.com/CCCWS/react-component/blob/main/HamburgerBtn/HamburgerBtn.js)  
    * 크기
       * width - 30px 
       * height - 30px
