@@ -39,30 +39,29 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
       setLocation((location) => location - 1);
     }
   };
-  const onNext = () => {
+  const onNext = useCallback(() => {
     if (location === children.length - 1) {
       setLocation(0);
     } else {
       setLocation((location) => location + 1);
     }
-  };
+  },[location, children]);
   
   //참조값을 동적으로 하여 변화된 state가 반영되는 setInterval의 개량형
   useEffect(() => {
-    savedCallback.current = onNext;
-  }, [children, location, onNext]);
+    if (auto && autoDelay) savedCallback.current = onNext;
+  }, [onNext, auto, autoDelay]);
 
   useEffect(() => {
-    if (auto && mouseOver === false && children.length > 1) {
       const tick = () => {
         savedCallback.current();
       };
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
+    
+    if (!mouseOver && auto && delay) {
+      const func = setInterval(tick, autoDelay);
+      return () => clearInterval(func);
     }
-  }, [children, auto, delay, mouseOver]);
+  }, [auto, delay, mouseOver]);
   
   
   //스와이프 
