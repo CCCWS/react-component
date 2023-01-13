@@ -23,7 +23,7 @@ const Box = styled.div`
   justify-content: space-around;
 
   div {
-    transition: all ease 0.3s;
+    transition: all ease 0.5s;
     width: 100%;
     height: 4px;
     background-color: var(--gray);
@@ -45,6 +45,7 @@ const Box = styled.div`
       }
 
       & > :nth-child(2) {
+        transform: translateX(-15px);
         opacity: 0;
       }
 
