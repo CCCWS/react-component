@@ -23,14 +23,13 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
   }, [children, location]);
 
   useEffect(() => {
-    if (auto && mouseOver === false && children.length > 1) {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
+    const tick = () => {
+      savedCallback.current();
+    };
+
+    if (!mouseOver && auto && delay) {
+      const func = setInterval(tick, delay);
+      return () => clearInterval(func);
     }
   }, [children, auto, delay, mouseOver]);
 
