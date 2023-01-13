@@ -36,8 +36,8 @@ const CarouselType2 = ({ children, height, point, auto, delay }) => {
   return (
     <>
       <Div
-        onMouseOver={() => setMouseOver(true)}
-        onMouseLeave={() => setMouseOver(false)}
+        onMouseOver={() => auto && setMouseOver(true)}
+        onMouseLeave={() => auto && setMouseOver(false)}
       >
         <Section height={height}>
           {children.map((data, index) => (
