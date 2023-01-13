@@ -200,7 +200,7 @@ const App = () => {
 
 
 
-<img src="https://user-images.githubusercontent.com/86645532/212037317-4ca04a4e-bf2c-4d56-814b-bbb8e46bf3b9.gif"  width="200px"> 
+<img src="https://user-images.githubusercontent.com/86645532/212288506-42f6a54c-da7b-4931-a0cf-1fb3bdcaabc7.gif"  width="200px"> 
 
 
   
@@ -213,10 +213,8 @@ const App = () => {
   );
 };
 ```  
-     
-     
-     
-     
+
+
      
 
 
