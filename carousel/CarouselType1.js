@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled, { css } from "styled-components";
-import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 
 const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay, swipe }) => {
   //넘겨진 자식노드가 하나일 경우 배열로 감싸줌
@@ -110,10 +109,10 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
         {nextBtn && children.length > 1 && (
           <>
             <Button prev={true} onClick={onPrev}>
-              <CaretLeftOutlined />
+              <div />
             </Button>
             <Button next={true} onClick={onNext}>
-              <CaretRightOutlined />
+              <div />
             </Button>
           </>
         )}
@@ -159,7 +158,7 @@ const Button = styled.button`
   position: absolute;
   left: ${(props) => props.prev && "0"};
   right: ${(props) => props.next && "0"};
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   width: 40px;
   font-size: 3rem;
@@ -171,7 +170,18 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
 
-  :hover {
+  div {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    clip-path: ${(props) =>
+      props.prev && "polygon(100% 0, 100% 0%, 100% 100%, 100% 100%, 0% 50%)"};
+
+    clip-path: ${(props) =>
+      props.next && "polygon(0 0, 0 0, 0 100%, 0 100%, 100% 50%)"};
+  }
+
+  &:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
   }
