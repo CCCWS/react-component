@@ -31,31 +31,6 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
     }
   }, []);
   
-  //참조값을 동적으로 하여 변화된 state가 반영되는 setInterval의 개량형
-  useEffect(() => {
-    const autoNext = () => {
-      if (location === children.length - 1) {
-        setLocation(0);
-      } else {
-        setLocation((location) => location + 1);
-      }
-    };
-
-    savedCallback.current = autoNext;
-  }, [children, location]);
-
-  useEffect(() => {
-    if (auto && mouseOver === false && children.length > 1) {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }
-  }, [children, auto, delay, mouseOver]);
-  
   //컴포넌트이동 이벤트
   const onPrev = () => {
     if (location === 0) {
@@ -71,6 +46,24 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
       setLocation((location) => location + 1);
     }
   };
+  
+  //참조값을 동적으로 하여 변화된 state가 반영되는 setInterval의 개량형
+  useEffect(() => {
+    savedCallback.current = onNext;
+  }, [children, location, onNext]);
+
+  useEffect(() => {
+    if (auto && mouseOver === false && children.length > 1) {
+      const tick = () => {
+        savedCallback.current();
+      };
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }
+  }, [children, auto, delay, mouseOver]);
+  
   
   //스와이프 
   let startClientX = 0;
