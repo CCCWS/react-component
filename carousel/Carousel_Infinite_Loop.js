@@ -5,7 +5,7 @@ const CarouselInfiniteLoop = ({
   children,
   height,
   point,
-  button,
+  nextBtn,
   auto,
   autoDelay,
   transitionDuration,
@@ -143,7 +143,7 @@ const CarouselInfiniteLoop = ({
           </PointBox>
        )}
 
-      {!checkOneChildren && button && (
+      {!checkOneChildren && nextBtn && (
         <>
           <Button prev={true} onClick={onPrev}>
             <div />
