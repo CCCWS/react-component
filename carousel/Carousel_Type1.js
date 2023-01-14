@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import styled, { css } from "styled-components";
 
-const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay, swipe }) => {
+const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, autoDelay, swipe }) => {
   //넘겨진 자식노드가 하나일 경우 배열로 감싸줌
   if (children.length === undefined) {
     children = [children];
@@ -50,18 +50,18 @@ const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, de
   //참조값을 동적으로 하여 변화된 state가 반영되는 setInterval의 개량형
   useEffect(() => {
     if (auto && autoDelay) savedCallback.current = onNext;
-  }, [onNext, auto, autoDelay]);
+  }, [onNext, autoDelay, autoDelay]);
 
   useEffect(() => {
       const tick = () => {
         savedCallback.current();
       };
     
-    if (!mouseOver && auto && delay) {
+    if (!mouseOver && auto && autoDelay) {
       const func = setInterval(tick, autoDelay);
       return () => clearInterval(func);
     }
-  }, [auto, delay, mouseOver]);
+  }, [auto, autoDelay, mouseOver]);
   
   
   //스와이프 
