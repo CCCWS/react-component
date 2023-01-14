@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import styled, { css } from "styled-components";
 
 const CarouselType1 = ({ children, height, slide, fade, nextBtn, point, auto, delay, swipe }) => {
