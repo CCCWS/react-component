@@ -78,7 +78,7 @@
 *children이 하나라면 point와 nextBtn을 true로 주어도 화면에 표시되지 않음.  
 *transitionDuration의 값을 입력하지 않거나 0일 경우 애니메이션이 발생하지 않음. 
 
-<img src="https://user-images.githubusercontent.com/86645532/212328928-59168716-9aa4-4e42-8ef8-072c2dfaf46a.gif">  
+<img src="https://user-images.githubusercontent.com/86645532/212328928-59168716-9aa4-4e42-8ef8-072c2dfaf46a.gif" width="500px">  
 
 
   * 사용예시
