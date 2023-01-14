@@ -121,14 +121,16 @@ const CarouselInfiniteLoop = ({
       onMouseOver={() => auto && setMouseOver(true)}
       onMouseLeave={() => auto && setMouseOver(false)}
     >
-      <Section>
-        <Item location={location} duration={duration}>
-          {component.map((data, index) => (
-            <ItemDiv key={index}>{data}</ItemDiv>
-          ))}
-        </Item>
+      
+      <Section location={location} duration={duration}>
+        {component.map((data, index) => (
+          <ItemDiv key={index} location={location} duration={duration}>
+            {data}
+          </ItemDiv>
+        ))}
+      </Section>
 
-        {!checkOneChildren && point && (
+      {!checkOneChildren && point && (
           <PointBox>
             {children.map((data, index) => (
               <Point
@@ -139,8 +141,7 @@ const CarouselInfiniteLoop = ({
               />
             ))}
           </PointBox>
-        )}
-      </Section>
+       )}
 
       {!checkOneChildren && button && (
         <>
@@ -162,26 +163,16 @@ const Div = styled.div`
   height: ${(props) => props.height};
 
   position: relative;
+  overflow: hidden;
 `;
 
 const Section = styled.div`
   width: inherit;
   height: inherit;
 
-  overflow: hidden;
-  position: relative;
-`;
-
-const Item = styled.div`
-  width: inherit;
-  height: inherit;
-
   display: flex;
   flex-flow: column wrap;
   position: absolute;
-
-  left: ${(props) => `-${props.location}00%`};
-  transition: ${(props) => `${props.duration}ms`};
 `;
 
 const ItemDiv = styled.div`
@@ -191,6 +182,9 @@ const ItemDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  transform: ${(props) => `translateX(-${props.location}00%)`};
+  transition: ${(props) => `${props.duration}ms`};
 `;
 
 const PointBox = styled.div`
