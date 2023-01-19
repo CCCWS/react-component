@@ -167,10 +167,12 @@ const Div = styled.div`
 |     setSelectValue         |       function         |     필수       |  null       | 선택한 값 변화       |
 |     slide         |       boolean        |     slide / fade 택1 필수         |   false       | 선택지 목록을 열때 slide 효과         | 
 |     fade         |      boolean        |     slide / fade 택1 필수    |   false       | 선택지 목록을 열때  효과         |
+|     searchBar         |      boolean        |     선택    |   false       | 목록 검색        |
 
-|                   slide            |                    fade                      |
-| :---------------------------------------------: | :---------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/86645532/204148527-d9068813-e86c-4861-ab2c-06bb4068977e.gif"  width="200px"> | <img src="https://user-images.githubusercontent.com/86645532/204148528-08bbe83f-5ebd-45bd-93ba-154f2a1b4fdb.gif"  width="200px"> |  
+|                   slide            |                    fade                      |                 searchBar                      |
+| :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/86645532/204148527-d9068813-e86c-4861-ab2c-06bb4068977e.gif"  width="200px"> | <img src="https://user-images.githubusercontent.com/86645532/204148528-08bbe83f-5ebd-45bd-93ba-154f2a1b4fdb.gif"  width="200px"> |   <img src="https://user-images.githubusercontent.com/86645532/213494703-4dd6e28a-615a-49fe-85a5-7051bf2dbec0.gif"  width="200px"> |  
+
 
   * 사용예시
   
