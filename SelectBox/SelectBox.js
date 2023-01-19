@@ -47,13 +47,13 @@ function SelectBox({
         fade={fade}
       >
         {dataArr.map((item, index) => (
-          <>
-            {open && (
-              <Li onClick={select} key={index}>
+          <React.Fragment key={index}>
+            {click && (
+              <Li onClick={select}>
                 {item}
               </Li>
             )}
-          </>
+          </React.Fragment>
         ))}
       </Ul>
     </Div>
@@ -62,20 +62,22 @@ function SelectBox({
 
 const Div = styled.div`
   width: ${(props) => props.width};
-  padding: 0.5rem;
 
+  padding: 0.5rem;
+  margin: 0.3rem;
   font-size: 1rem;
+
   background-color: white;
+  color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 3px;
-  margin: 0.3rem;
-  transition: all ease 0.2s;
+  transition: 0.2s;
 
   &:hover {
     cursor: pointer;
@@ -84,20 +86,20 @@ const Div = styled.div`
 `;
 
 const Ul = styled.ul`
-  position: absolute;
   width: 100%;
-  top: calc(100% + 10px);
   padding: 0px;
 
+  position: absolute;
+  top: calc(100% + 10px);
+
+  background-color: white;
   border: none;
   list-style: none;
-
-  z-index: 99;
   border-radius: 3px;
-  transition: 0.5s;
+
   box-shadow: ${(props) =>
     props.open ? "0px 0px 10px 0px rgba(0, 0, 0, 0.1)" : "none"};
-
+  transition: 0.3s;
   overflow-y: scroll;
 
   ${(props) =>
@@ -112,23 +114,23 @@ const Ul = styled.ul`
       opacity: ${(props) => (props.open ? "1" : "0")};
       max-height: 15rem;
     `}
-
   &::-webkit-scrollbar {
-    width: 0px;
+    width: 3px;
   }
 `;
 
 const Li = styled.li`
+  width: 100%;
+
   padding: 1rem;
   font-size: 1rem;
-  width: 100%;
+
+  color: black;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: all ease 0.2s;
-
   &:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
