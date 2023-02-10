@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-
+import test from "./1844b200eed56fc75.jpeg";
 
 const ImageViewer = ({ size, img }) => {
   const [viewerPosition, setScannerPosition] = useState(null);
-  const [viewPosition, setViewPosition] = useState(null);
   const [boxSize, setBoxSize] = useState(null);
 
   if (!size) throw new Error("size empty");
@@ -16,7 +15,6 @@ const ImageViewer = ({ size, img }) => {
 
   const onMouseMove = (e) => {
     const viewerPosition = { left: 0, top: 0 };
-    console.log(viewPosition);
 
     //e.clientX - boxSize.x => viewer의 위치 변경
     //현재 커서의 위치에서 실제 컴포넌트의 위치를 빼서 컴포넌트 내부에서의 커서 위치를 계산
@@ -50,15 +48,10 @@ const ImageViewer = ({ size, img }) => {
     }
 
     setScannerPosition(viewerPosition);
-    setViewPosition({
-      left: viewerPosition.left,
-      top: viewerPosition.top,
-    });
   };
 
   const onMouseLeave = () => {
     setScannerPosition();
-    setViewPosition();
   };
 
   return (
@@ -70,17 +63,17 @@ const ImageViewer = ({ size, img }) => {
       onMouseLeave={onMouseLeave}
     >
       {boxSize && viewerPosition && (
-        <Viewer position={viewerPosition} size={boxSize.width / 2} />
-      )}
+        <>
+          <Viewer position={viewerPosition} size={boxSize.width / 2} />
 
-      {boxSize && viewPosition && (
-        <Test>
-          <ZoomViewer
-            position={viewerPosition}
-            img={`url('${img}')`}
-            onMouseMove={onMouseLeave}
-          />
-        </Test>
+          <Test>
+            <ZoomViewer
+              position={viewerPosition}
+              img={`url('${img}')`}
+              onMouseMove={onMouseLeave}
+            />
+          </Test>
+        </>
       )}
     </Div>
   );
@@ -96,18 +89,6 @@ const Div = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-  background-color: red;
-
-  ::before {
-    content: ".";
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-  }
 `;
 
 const Viewer = styled.span`
@@ -136,28 +117,26 @@ const Test = styled.div`
   position: absolute;
   top: 0;
   left: calc(100% + 20px);
-  background-color: red;
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
+
+  border: 1px solid gray;
 `;
 
 const ZoomViewer = styled.div`
   width: 100%;
   height: 100%;
-  scale: 1;
-  transform-origin: left;
+  scale: 2;
+  transform-origin: left top;
   background-image: ${(props) => props.img};
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: ${(props) =>
-    `-${props.position.left}px -${props.position.top}px`};
+  background-position: center;
 
-  background-color: red;
-
-  /* transform: ${(props) =>
-    `translate(-${props.position.left}px, -${props.position.top}px)`}; */
+  transform: ${(props) =>
+    `translate(-${props.position.left}px, -${props.position.top}px)`};
 `;
 
 export default ImageViewer;
