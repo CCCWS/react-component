@@ -1,16 +1,15 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import test from "./1844b200eed56fc75.jpeg";
 
 const ImageViewer = ({ size, img }) => {
-  const [viewerPosition, setScannerPosition] = useState(null);
-  const [boxSize, setBoxSize] = useState(null);
+  const [viewerPosition, setViewerPosition] = useState(null);
+  const [imgBoxPosition, setImgBoxPosition] = useState(null);
 
   if (!size) throw new Error("size empty");
   if (!img) throw new Error("image empty");
 
   const onBoxSize = useCallback((component) => {
-    if (component) setBoxSize(component.getBoundingClientRect());
+    if (component) setImgBoxPosition(component.getBoundingClientRect());
   }, []);
 
   const onMouseMove = (e) => {
@@ -21,37 +20,48 @@ const ImageViewer = ({ size, img }) => {
 
     //boxSize.width / 4 => 커서가 중앙에 위치하도록 위치 조정
     //viewer의 크기(boxSize.width / 2)에 다시 반을 나눠서 중앙에 위치
-    const viewerPosX = e.clientX - boxSize.x - boxSize.width / 4;
-    const viewerPosY = e.clientY - boxSize.y - boxSize.width / 4;
+    const viewerPosX = e.clientX - imgBoxPosition.x - size / 4;
+    const viewerPosY = e.clientY - imgBoxPosition.y - size / 4;
 
-    const checkPosX = viewerPosX >= 0 && viewerPosX <= 250;
-    const checkPosY = viewerPosY >= 0 && viewerPosY <= 250;
+    //viewer가 이동 가능한지 확인
+    //viewerPos의 값이 0보다 작거나 viewer의 크기보다 크면 viewer는 이미지를 벗어남
+    const checkPosX = viewerPosX >= 0 && viewerPosX <= size / 2;
+    const checkPosY = viewerPosY >= 0 && viewerPosY <= size / 2;
 
     if (checkPosX) {
+      //이동 가능하면 죄표값 그대로 사용
       viewerPosition.left = viewerPosX;
     } else {
+      //0보다 작아지면 더이상 왼쪽으로 이동 불가
       if (viewerPosX < 0) {
         viewerPosition.left = 0;
-      } else {
-        viewerPosition.left = 250;
+      }
+
+      //size / 2(viewer의 크기)보다 커지면 더이상 오른쪽으로 이동 불가
+      if (viewerPosX > size / 2) {
+        viewerPosition.left = size / 2;
       }
     }
 
     if (checkPosY) {
       viewerPosition.top = viewerPosY;
     } else {
+      //0보다 작아지면 더이상 상단으로 이동 불가
       if (viewerPosY < 0) {
         viewerPosition.top = 0;
-      } else {
-        viewerPosition.top = 250;
+      }
+
+      //size / 2(viewer의 크기)보다 커지면 더이상 하단으로 이동 불가
+      if (viewerPosY > size / 2) {
+        viewerPosition.top = size / 2;
       }
     }
 
-    setScannerPosition(viewerPosition);
+    setViewerPosition(viewerPosition);
   };
 
   const onMouseLeave = () => {
-    setScannerPosition();
+    setViewerPosition();
   };
 
   return (
@@ -62,17 +72,13 @@ const ImageViewer = ({ size, img }) => {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      {boxSize && viewerPosition && (
+      {imgBoxPosition && viewerPosition && (
         <>
-          <Viewer position={viewerPosition} size={boxSize.width / 2} />
+          <Viewer position={viewerPosition} />
 
-          <Test>
-            <ZoomViewer
-              position={viewerPosition}
-              img={`url('${img}')`}
-              onMouseMove={onMouseLeave}
-            />
-          </Test>
+          <ZoomDiv>
+            <Zoom position={viewerPosition} img={`url('${img}')`} />
+          </ZoomDiv>
         </>
       )}
     </Div>
@@ -94,8 +100,8 @@ const Div = styled.div`
 const Viewer = styled.span`
   position: absolute;
 
-  width: ${(props) => `${props.size}px`};
-  height: ${(props) => `${props.size}px`};
+  width: 50%;
+  height: 50%;
 
   left: ${(props) => `${props.position.left}px`};
   top: ${(props) => `${props.position.top}px`};
@@ -103,33 +109,29 @@ const Viewer = styled.span`
   border: 1px solid gray;
   background-color: rgba(0, 0, 0, 0.3);
 
-  ::before {
-    content: "test";
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  cursor: crosshair;
 `;
 
-const Test = styled.div`
+const ZoomDiv = styled.div`
   position: absolute;
-  top: 0;
-  left: calc(100% + 20px);
+
   width: 100%;
   height: 100%;
-  position: relative;
-  overflow: hidden;
 
+  top: 0;
+  left: calc(100% + 20px);
+
+  overflow: hidden;
   border: 1px solid gray;
 `;
 
-const ZoomViewer = styled.div`
+const Zoom = styled.div`
   width: 100%;
   height: 100%;
+
   scale: 2;
   transform-origin: left top;
+
   background-image: ${(props) => props.img};
   background-size: contain;
   background-repeat: no-repeat;
