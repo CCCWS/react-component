@@ -213,6 +213,7 @@ const App = () => {
 | <img src="https://user-images.githubusercontent.com/86645532/210561705-7fd86081-750e-4063-bae4-b25df8308e1d.gif"  width="400px">  |
 
 
+  * 사용예시
   
   ```javascript
 const App = () => {  
@@ -227,7 +228,7 @@ const App = () => {
 ```  
 
 
-## 6. [HamburgerBtn](https://github.com/CCCWS/react-component/blob/main/HamburgerBtn/HamburgerBtn.js)  
+## 6. [Hamburger Button](https://github.com/CCCWS/react-component/blob/main/HamburgerBtn/HamburgerBtn.js)  
    * 크기
       * width - 30px 
       * height - 30px
@@ -244,6 +245,7 @@ const App = () => {
 <img src="https://user-images.githubusercontent.com/86645532/212288506-42f6a54c-da7b-4931-a0cf-1fb3bdcaabc7.gif"  width="200px"> 
 
 
+  * 사용예시
   
   ```javascript
 const App = () => {  
@@ -255,11 +257,32 @@ const App = () => {
 };
 ```  
 
+## 7. [Image Viewer](https://github.com/CCCWS/react-component/tree/main/carousel)
+   * 크기
+      * width - props로 넘겨준값 px
+      * height - width와 동일
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     size         |       number         |    필수       |  null       | 컴포넌트의 크기       |
+|     img         |       string         |     필수       |  null       | 화면에 출력할 이미지        |
 
-     
+
+|                   가로 이미지            |                    세로 이미지                      |
+| :---------------------------------------------: | :---------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/86645532/218731465-69cf3047-5c69-4c44-836d-ab85948c5865.gif"  width="400px"> | <img src="https://user-images.githubusercontent.com/86645532/218731513-8924c84f-919a-4549-a24a-3855813efe02.gif"  width="400px"> |  
 
 
-     
+  * 사용예시
+```javascript
+<ImageViewer size={300} img={myImg} />
+``` 
+      
+      
+ 
+
 
 
 
