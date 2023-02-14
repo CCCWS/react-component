@@ -257,7 +257,8 @@ const App = () => {
 };
 ```  
 
-## 7. [Image Viewer](https://github.com/CCCWS/react-component/tree/main/carousel)
+## 7. [Image Viewer](https://github.com/CCCWS/react-component/blob/main/Image%20Viewer/ImageViewer.js)
+
    * 크기
       * width - props로 넘겨준값 px
       * height - width와 동일
