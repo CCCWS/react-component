@@ -296,7 +296,7 @@ const App = () => {
    |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
 | :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
 |     height         |       number         |    선택       |  10       | 컴포넌트의 높이       |
-|     color         |       string         |     선택       |  black       |         |
+|     color         |       string         |     선택       |  black       | 컴포넌트의      |
 
 
 <img src="https://user-images.githubusercontent.com/86645532/232226606-2438ac15-50d3-4a65-ac69-c6b9528a1b8b.gif"  width="400px"> 
