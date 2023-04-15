@@ -285,7 +285,7 @@ const App = () => {
 ``` 
       
       
- ## 7. [PageScrollPercentBar](https://github.com/CCCWS/react-component/blob/main/PageScrollPercentBar/PageScrollPercentBar.tsx)
+ ## 8. [PageScrollPercentBar](https://github.com/CCCWS/react-component/blob/main/PageScrollPercentBar/PageScrollPercentBar.tsx)
 
    * 크기
       * width - 최대 스크롤시 100vw
