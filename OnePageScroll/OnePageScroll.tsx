@@ -10,7 +10,7 @@ interface Props {
   delay: number;
 }
 
-const VerticalCarousel = ({ children, point, delay }: Props) => {
+const OnePageScroll = ({ children, point, delay }: Props) => {
   //현재 위치
   const [location, setLocation] = useState<number>(0);
 
@@ -141,4 +141,4 @@ const Point = styled.div<{ location: boolean }>`
   cursor: pointer;
 `;
 
-export default VerticalCarousel;
+export default OnePageScroll;
