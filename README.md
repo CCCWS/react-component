@@ -278,13 +278,37 @@ const App = () => {
 
   * 사용예시
 ```javascript
-<ImageViewer size={300} img={myImg} />
+const App = () => {  
+  return (
+    <ImageViewer size={300} img={myImg} />
+    )
 ``` 
       
       
- 
+ ## 7. [PageScrollPercentBar](https://github.com/CCCWS/react-component/blob/main/PageScrollPercentBar/PageScrollPercentBar.tsx)
+
+   * 크기
+      * width - 최대 스크롤시 100vw
+      * height - 기본값 10px
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     height         |       number         |    선택       |  10       | 컴포넌트의 높이       |
+|     color         |       string         |     선택       |  black       |         |
 
 
+<img src="https://user-images.githubusercontent.com/86645532/232226606-2438ac15-50d3-4a65-ac69-c6b9528a1b8b.gif"  width="400px"> 
+
+
+  * 사용예시
+```javascript
+const App = () => {  
+  return (
+    <PageScrollPercentBar color={"red"} height={20} />
+    )
+``` 
 
 
 
