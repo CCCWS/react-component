@@ -308,7 +308,14 @@ const App = () => {
   return (
     <PageScrollPercentBar color={"red"} height={20} />
     )
-``` 
+```
+
+
+ ## 9. [FlipCard](https://github.com/CCCWS/react-component/blob/main/FlipCard/FlipCard.tsx)
+
+<img src="https://github.com/CCCWS/react-component/assets/86645532/a95d3e8f-1f6c-4d89-851f-e45d2660d996.gif"  width="400px"> 
+
+
 
 
 
