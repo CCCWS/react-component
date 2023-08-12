@@ -2,27 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 interface CardProps {
+  children: React.ReactNode;
   width: string;
   height: string;
   scale?: number;
 }
 
-const FlipCard = ({ width, height, scale }: CardProps) => {
+const FlipCard = ({ children, width, height, scale }: CardProps) => {
+  const childrenArr = React.Children.toArray(children);
+
   return (
     <Card width={width} height={height} scale={scale ? scale : 1}>
       <div>
-        <Front>
-          {/* <Image></Image>
-            <Price>25,000원</Price>
-            <Title>Nike Awesome Red Shoes</Title>
-            <Tag>Special Edition</Tag> */}
-          <div>Front</div>
-        </Front>
-
-        <Back>
-          {/* <AddBtn>Add To Cart</AddBtn> */}
-          <div>Back</div>
-        </Back>
+        <Front>{childrenArr[0]}</Front>
+        <Back>{childrenArr[1]}</Back>
       </div>
     </Card>
   );
@@ -58,22 +51,13 @@ const FrontBackBase = styled.div`
   border-radius: 10px;
 
   border: 1px solid black;
+
+  overflow: hidden;
 `;
 
 const Front = styled(FrontBackBase)``;
 const Back = styled(FrontBackBase)`
   transform: rotateY(180deg);
-`;
-
-const Image = styled.div`
-  width: 14.37em;
-  height: 14.37em;
-  border-radius: 1em;
-  margin: 2em auto 1em auto;
-
-  display: block;
-
-  background-color: red;
 `;
 
 export default FlipCard;
