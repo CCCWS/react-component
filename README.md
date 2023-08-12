@@ -312,8 +312,39 @@ const App = () => {
 
 
  ## 9. [FlipCard](https://github.com/CCCWS/react-component/blob/main/FlipCard/FlipCard.tsx)
+  * 크기
+      * width - props로 넘겨준값 
+      * height - width와 동일
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children         |       React.ReactNode         |     2개 필수       |  null       | 앞면과 후면에 들어갈 컴포넌트       |
+|     width         |       string         |    필수       |  null       | 컴포넌트의 크기       |
+|     height         |       string         |    필수       |  null       | 컴포넌트의 크기       |
+|     scale         |       number         |     선택       |  1       | hover시 확대할 수치       |
+
+
 
 <img src="https://github.com/CCCWS/react-component/assets/86645532/a95d3e8f-1f6c-4d89-851f-e45d2660d996.gif"  width="400px"> 
+
+
+
+  * 사용예시
+```javascript
+const App = () => {  
+  return (
+    <FlipCard width={"250px"} height={"350px"} scale={1.5}>
+      <div>Front</div>
+      <div>Back</div>
+    </FlipCard>
+    )
+``` 
+
+ 
+
+
 
 
 
