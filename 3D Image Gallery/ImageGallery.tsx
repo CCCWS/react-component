@@ -19,8 +19,6 @@ const ImageGallery = ({
   const childrenArr = React.Children.toArray(children);
   const calcAngle = 360 / childrenArr.length;
 
-  console.log(!vertical === true);
-
   interface CurrLocationType {
     index: number;
     location: number;
