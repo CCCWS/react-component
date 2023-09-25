@@ -152,10 +152,10 @@ const Div = styled.div`
 `;
 ```  
 
-## 4. [SelectBox](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
+## 4. [Select Box](https://github.com/CCCWS/react-component/blob/main/SelectBox/SelectBox.js)  
    * 크기
       * width - props로 넘겨준 값 
-      * height - 폰트 에 따라 변화
+      * height - 폰트에 따라 변화
       
    * 옵션  
    
@@ -261,7 +261,7 @@ const App = () => {
 
    * 크기
       * width - props로 넘겨준값 px
-      * height - width와 동일
+      * height - props로 넘겨준값 px
       
    * 옵션  
    
@@ -285,7 +285,7 @@ const App = () => {
 ``` 
       
       
- ## 8. [PageScrollPercentBar](https://github.com/CCCWS/react-component/blob/main/PageScrollPercentBar/PageScrollPercentBar.tsx)
+ ## 8. [Page Scroll Percent Bar](https://github.com/CCCWS/react-component/blob/main/PageScrollPercentBar/PageScrollPercentBar.tsx)
 
    * 크기
       * width - 최대 스크롤시 100vw
@@ -314,7 +314,7 @@ const App = () => {
  ## 9. [FlipCard](https://github.com/CCCWS/react-component/blob/main/FlipCard/FlipCard.tsx)
   * 크기
       * width - props로 넘겨준값 
-      * height - width와 동일
+      * height - props로 넘겨준값 
       
    * 옵션  
    
@@ -341,6 +341,55 @@ const App = () => {
     </FlipCard>
     )
 ``` 
+
+## 10. [3D Image Gallery](https://github.com/CCCWS/react-component/blob/main/3D%20Image%20Gallery/ImageGallery.tsx)
+
+  * 크기
+      * width - 부모 컴포넌트의 100% 
+      * height - 부모 컴포넌트의 100%
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children       |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
+|     perspective    |       number         |     선택       |  1000       |   원근감, 작을 수록 가깝고 멀수록 멀리보임    |
+|     zAxis          |       number        |     선택         |  300       | z축의 값         | 
+|     reflect        |       boolean         |     선택       |  false       | 반사 여부       |
+|     vertical       |       boolean        |     선택         |  false       | 세로로 회전         | 
+
+
+|             horizontal                  |            vertical                 | 
+| :---------------------------------------------: |  :---------------------------------------------: | 
+| <img src="https://github.com/CCCWS/react-component/assets/86645532/c0d0d97e-7406-4a71-954b-773ad21bb0df"  width="400px">  |<img src="https://github.com/CCCWS/react-component/assets/86645532/39f1ac2b-aebf-454b-a709-7796d441991f"  width="400px">  |
+
+
+
+
+
+
+  * 사용예시
+  
+  ```javascript
+const App = () => {  
+  return (
+  <div>
+    <ImageGallery
+          perspective={800}
+          zAxis={200}
+          reflect={true}
+          vertical={true}
+        >
+          {imageArr.map((data, index) => (
+            <Div key={index} color={data}>
+              {data}
+            </Div>
+          ))}
+        </ImageGallery>
+  </div>
+  );
+};
+```  
 
  
 
