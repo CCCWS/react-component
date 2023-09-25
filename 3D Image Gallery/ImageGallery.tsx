@@ -30,7 +30,7 @@ const About = () => {
     <Page>
       <Ttest></Ttest>
       <Test>
-        <ImageGallery perspective={800} zAxis={300} reflect={true}>
+        <ImageGallery perspective={800} zAxis={300} reflect={false}>
           {imageArr.map((data, index) => (
             <Div key={index} color={data}>
               {data}
@@ -43,10 +43,10 @@ const About = () => {
 };
 
 const Test = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 
-  background-color: blue;
+  /* background-color: blue; */
 `;
 
 const Div = styled.div<{ color: string }>`
