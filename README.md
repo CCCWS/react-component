@@ -378,7 +378,6 @@ const App = () => {
           perspective={800}
           zAxis={200}
           reflect={true}
-          vertical={true}
         >
           {imageArr.map((data, index) => (
             <Div key={index} color={data}>
