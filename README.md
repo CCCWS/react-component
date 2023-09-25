@@ -355,7 +355,7 @@ const App = () => {
 |     children       |       React.ReactNode         |     1개 이상       |  null       | 사용할 컴포넌트       |
 |     perspective    |       number         |     선택       |  1000       |   원근감, 작을 수록 가깝고 멀수록 멀리보임    |
 |     zAxis          |       number        |     선택         |  300       | z축의 값         | 
-|     reflect        |       boolean         |     선택       |  false       | 반사 여부       |
+|     reflect        |       boolean         |     선택       |  false       | 반사 여부, vertical가 true라면 사용불가       |
 |     vertical       |       boolean        |     선택         |  false       | 세로로 회전         | 
 
 
