@@ -111,10 +111,7 @@ const Box = styled.div<BoxProps>`
       css`
         transform: ${() =>
           `perspective(${props.perspective}) rotateX(${props.currLocation}deg)`};
-      `}/* @media (max-width: 750px) {
-      transform: ${(props) =>
-      `perspective(${props.perspective}) rotateX(${props.currLocation}deg)`};
-    } */
+      `}
   }
 `;
 
@@ -143,6 +140,7 @@ const Image = styled.div<ImageProps>`
 
     -webkit-box-reflect: ${(props) =>
       props.isReflect &&
+      !props.isVertical &&
       "below 3px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))"};
 
     ${(props) =>
@@ -150,10 +148,7 @@ const Image = styled.div<ImageProps>`
       css`
         transform: ${() =>
           `rotateX(calc(${props.index} * ${props.angle}deg)) rotateY(0deg) translate3d(0,0, ${props.zAxis}px) `};
-      `}/* @media (max-width: 750px) {
-      transform: ${(props) =>
-      `rotateX(calc(${props.index} * ${props.angle}deg)) rotateY(0deg) translate3d(0,0, ${props.zAxis}px) `};
-    } */
+      `}
   }
 `;
 
