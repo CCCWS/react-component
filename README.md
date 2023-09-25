@@ -373,8 +373,8 @@ const App = () => {
   ```javascript
 const App = () => {  
   return (
-  <div>
-    <ImageGallery
+    <div>
+      <ImageGallery
           perspective={800}
           zAxis={200}
           reflect={true}
@@ -386,7 +386,7 @@ const App = () => {
             </Div>
           ))}
         </ImageGallery>
-  </div>
+    </div>
   );
 };
 ```  
