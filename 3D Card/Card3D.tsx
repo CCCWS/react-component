@@ -39,11 +39,11 @@ const Card3D = ({ children, perspective, hoverScale }: CardProps) => {
   };
 
   const onMouseOver = (e: React.MouseEvent) => {
-    let mouseX = e.nativeEvent.offsetX;
-    let mouseY = e.nativeEvent.offsetY;
-    let rotateY = map(mouseX, 0, cardSize.width, -25, 25); //300 > Card의 width
-    let rotateX = map(mouseY, 0, cardSize.height, 25, -25); //250 > Card의 height
-    let brightness = map(mouseY, 0, 250, 1.5, 0.7);
+    const mouseX = e.nativeEvent.offsetX;
+    const mouseY = e.nativeEvent.offsetY;
+    const rotateY = map(mouseX, 0, cardSize.width, -25, 25); //300 > Card의 width
+    const rotateX = map(mouseY, 0, cardSize.height, 25, -25); //250 > Card의 height
+    const brightness = map(mouseY, 0, 300, 1.5, 0.7);
 
     if (cardRef.current) {
       cardRef.current.style.setProperty(
@@ -66,28 +66,26 @@ const Card3D = ({ children, perspective, hoverScale }: CardProps) => {
   };
 
   return (
-    <Card perspective={perspective} hoverScale={hoverScale}>
-      <div
-        onMouseMove={(e) => onMouseOver(e)}
-        onMouseLeave={onMouseLeave}
-        ref={cardRef}
-      >
-        {children}
-      </div>
-    </Card>
+      <Card perspective={perspective} $hoverScale={hoverScale}>
+        <div
+          onMouseMove={(e) => onMouseOver(e)}
+          onMouseLeave={onMouseLeave}
+          ref={cardRef}
+        >
+          {children}
+        </div>
+      </Card>
   );
 };
 
-const Card = styled.div<{ perspective: number; hoverScale?: number }>`
+const Card = styled.div<{ perspective: number; $hoverScale?: number }>`
   display: inline-block;
   transition: 0.5s;
   perspective: ${(props) => `${props.perspective}px`};
 
-  background-color: red;
-
   &:hover {
     transform: ${(props) =>
-      props.hoverScale ? `scale(${props.hoverScale})` : "scale(1)"};
+      props.$hoverScale ? `scale(${props.$hoverScale})` : "scale(1)"};
   }
 
   & > :first-child {
