@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface CardProps {
   children: ReactNode;
-  perspective: number;
+  perspective?: number;
   hoverScale?: number;
 }
 
@@ -78,10 +78,11 @@ const Card3D = ({ children, perspective, hoverScale }: CardProps) => {
   );
 };
 
-const Card = styled.div<{ perspective: number; $hoverScale?: number }>`
+const Card = styled.div<{ perspective?: number; $hoverScale?: number }>`
   display: inline-block;
   transition: 0.5s;
-  perspective: ${(props) => `${props.perspective}px`};
+  perspective: ${(props) =>
+    props.perspective ? `${props.perspective}px` : "1000px"};
 
   &:hover {
     transform: ${(props) =>
