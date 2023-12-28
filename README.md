@@ -390,6 +390,37 @@ const App = () => {
 };
 ```  
 
+## 11. [3D Card](https://github.com/CCCWS/react-component/blob/main/3D%20Card/Card3D.tsx)
+
+  * 크기
+      * width - 넘겨준 children의 width 
+      * height - 넘겨준 children의 height
+      
+   * 옵션  
+   
+   |   옵션명           | 타입                |   필수 여부                |기본값            |  설명            | 
+| :---------------:  |   :--------------------:  | :--------------------:  | :--------------------:  |:--------------------:  |
+|     children       |       React.ReactNode         |     1개      |  null       | 사용할 컴포넌트       |
+|     perspective    |       number         |     선택       |  1000       |   원근감, 작을 수록 가깝고 멀수록 멀리보임    |
+|     hoverScale          |       number        |     선택         |  1       | hover시 확대할 크기         | 
+
+
+<img src="https://github.com/CCCWS/react-component/assets/86645532/983063fd-9267-49fd-9ad9-b675c6191129"  width="400px"> 
+
+
+
+  * 사용예시
+  
+  ```javascript
+const App = () => {  
+  return (
+    <Card3D perspective={1500} hoverScale={1.2}>
+      <div></div>
+    </Card3D>
+  );
+};
+```  
+
  
 
 
