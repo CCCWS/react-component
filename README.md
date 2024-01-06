@@ -403,7 +403,7 @@ const App = () => {
 |     children       |       React.ReactNode         |     1개      |  null       | 사용할 컴포넌트       |
 |     perspective    |       number         |     선택       |  1000       |   원근감, 작을 수록 가깝고 멀수록 멀리보임    |
 |     hoverScale          |       number        |     선택         |  1       | hover시 확대할 크기         | 
-
+|     haveParentComponent          |       boolean        |     선택         |  false       | true시 부모 컴포넌트의 width, height의 100%로 크기 설정         | 
 
 <img src="https://github.com/CCCWS/react-component/assets/86645532/983063fd-9267-49fd-9ad9-b675c6191129"  width="400px"> 
 
